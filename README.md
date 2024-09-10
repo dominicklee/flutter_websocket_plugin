@@ -1,7 +1,7 @@
 
 ---
 
-**NOTE**: This repository is no longer maintained by ENGAPP. To preserve its contents for future developers, it can be [found here](https://github.com/dominicklee/flutter_websocket_plugin)
+**NOTE**: This repository is no longer maintained by ENGAPP. To preserve its contents for future developers, it can be [found here](https://github.com/dominicklee/flutter_websocket_plugin). This is a null-safe package.
 
 ---
 
