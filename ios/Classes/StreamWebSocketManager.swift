@@ -43,9 +43,6 @@ class StreamWebSocketManager: NSObject, WebSocketDelegate {
 		ws?.voipEnabled = true // <-- Enable VoIP mode
         ws?.delegate = self
 		
-		// Start the ping-pong keep-alive strategy
-		startPingPong()
-		
 //        if(enableCompression != nil) {
 //            ws?.enableCompression = enableCompression!
 //        } else {
@@ -59,18 +56,6 @@ class StreamWebSocketManager: NSObject, WebSocketDelegate {
         onConnect()
         onClose()
     }
-	
-	// Add a function to send pings at regular intervals
-	func startPingPong() {
-		Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true) { timer in
-			if let ws = self.ws, ws.isConnected {
-				ws.write(ping: Data()) // Send a ping to keep the connection alive
-				print("Sent ping to keep the WebSocket connection alive")
-			} else {
-				timer.invalidate() // Stop the timer if the WebSocket is not connected
-			}
-		}
-	}
 
     func onConnect() {
         ws?.onConnect = {
