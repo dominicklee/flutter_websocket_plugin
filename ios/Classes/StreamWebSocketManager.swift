@@ -40,6 +40,7 @@ class StreamWebSocketManager: NSObject, WebSocketDelegate {
         self.enableRetries = enableRetries
         print(request.allHTTPHeaderFields as Any)
         ws = WebSocket(request: request)
+		ws?.voipEnabled = true // <-- Enable VoIP mode
         ws?.delegate = self
 //        if(enableCompression != nil) {
 //            ws?.enableCompression = enableCompression!
